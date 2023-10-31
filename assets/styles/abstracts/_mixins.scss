@@ -1,0 +1,19 @@
+@use "./variables" as *;
+@use "sass:map";
+
+/* Media Queries */
+@mixin breakpoint($key) {
+  $size: map.get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin breakpointMax($key) {
+  $size: map.get($breakpoints, $key);
+
+  @media only screen and (max-width: ($size - 1)) {
+    @content;
+  }
+}

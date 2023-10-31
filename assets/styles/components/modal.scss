@@ -1,0 +1,235 @@
+@use '../abstracts/colours' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  &-bg {
+    position: absolute;
+    background: rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+  }
+  &-container {
+    background: $white-main;
+    position: relative;
+    padding: 30px 20px;
+    max-height: 95vh;
+    height: auto;
+    max-width: 300px;
+    width: 100%;
+    overflow: auto;
+    color: $primary;
+    text-align: center;
+
+    h4{
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.21em;
+      margin-bottom: 0;
+    }
+    p{
+      text-align: center;
+      color: #2B3965;
+      font-size: 10px;
+      line-height: 2em;
+    }
+    a{
+      color: $accent-main;
+    }
+  }
+
+  .hbspt-form {
+    max-width: 360px;
+    margin: auto;
+    text-align: left;
+    padding: 30px 0;
+
+    label {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.2100000000000002em;
+      margin-bottom: 2px;
+
+      .hs-form-required {
+        color: $accent-main;
+        margin-left: 2px;
+      }
+    }
+
+    .hs-form-field {
+      margin-bottom: 30px !important;
+    }
+
+    .input {
+      margin: 0 !important;
+    }
+
+    .inputs-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    select {
+      position: relative;
+      background: url('assets/images/arrow-down.svg') calc(100% - 12px) center/16px no-repeat !important;
+      padding-right: 26px !important;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      outline: none !important;
+    }
+
+    input,
+    select,
+    textarea {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.1875em;
+      padding: 0 12px;
+      width: 100% !important;
+      height: 59px;
+      background: #FFFFFF;
+      border: 1px solid #949494;
+      border-radius: 0;
+      margin: 0 !important;
+      outline: none !important;
+      transition: all .3s ease;
+
+      &:active,
+      &:focus {
+        border: 1px solid $dark-blue !important;
+        box-shadow: inset 0 0 0 1px $dark-blue;
+      }
+
+      &.error {
+        border: 1px solid #EE0004 !important;
+        box-shadow: inset 0 0 0 1px #EE0004;
+      }
+
+      &:hover {
+        border: 1px solid #767676;
+        box-shadow: inset 0 0 0 1px #767676;
+      }
+
+      &:disabled {
+        background: #F4F4F4;
+
+        .inputs-list {
+          color: #F4F4F4;
+        }
+      }
+    }
+
+    textarea.hs-input {
+      height: 120px;
+      padding-top: 10px;
+    }
+
+    .inputs-list label {
+      position: relative;
+    }
+
+    .form-columns-2 {
+      > div {
+        width: 100% !important;
+      }
+
+      @media (min-width: 768px) {
+        > div {
+          width: 50% !important;
+          padding-right: 10px !important;
+
+          &:last-child {
+            padding-left: 10px !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+    }
+
+    input[type="submit"] {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2em;
+      color: $white-main;
+      padding: 9.7px 24.63px 9.7px 24.63px;
+      border: 1px solid $accent-main !important;
+      background: $accent-main;
+      outline: none !important;
+      transition: all .3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: $primary !important;
+        color: #fff;
+        border-color: $primary !important;
+      }
+    }
+
+    .hs_error_rollup {
+      text-align: center;
+      margin-bottom: 10px;
+
+      .hs-error-msgs {
+        margin: 0;
+
+        li {
+          padding-right: 0;
+        }
+
+        label {
+          color: #EE0004;
+          font-size: 11px !important;
+          line-height: 1.25px !important;
+        }
+      }
+    }
+
+    .hs-error-msgs {
+      padding: 0;
+      list-style: none;
+      margin: 2px 0 0;
+
+      li {
+        padding-right: 0;
+      }
+
+      label {
+        font-size: 12px !important;
+        margin: 0 !important;
+        color: var( --e-global-color-secondary );
+      }
+    }
+
+    .submitted-message {
+      text-align: center;
+    }
+  }
+
+  @include breakpoint(md){
+    &-container {
+      max-width: 500px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.ripple-button a {
+  position: relative;
+}
+.ripple-button a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1D2745;
+  top: 0;
+  left: 0;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  z-index: 1;
+}
+.ripple-button a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  top: 0;
+  left: 0;
+  border: 1px solid #1D2745;
+  transform: scale(1);
+  transition: all 0.3s ease-in;
+  opacity: 1;
+  z-index: 2;
+}
+.ripple-button a:hover:before, .ripple-button a:focus:before {
+  transform: scale(1);
+  opacity: 1;
+}
+.ripple-button a:hover:after, .ripple-button a:focus:after {
+  transform: scale(1.15, 1.3);
+  opacity: 0;
+}
+.ripple-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.ripple-button_white a:before {
+  background: #fff;
+}
+.ripple-button_white a:after {
+  border-color: #fff;
+}
+
+/*# sourceMappingURL=buttons.css.map */

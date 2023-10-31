@@ -1,0 +1,19 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveTopToBottom  {
+  0% {top: 0;}
+  100% {top:100%;}
+}
+
+@keyframes moveLeftToRight  {
+  0% {left: 0;}
+  100% {left:100%;}
+}

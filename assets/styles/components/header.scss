@@ -1,0 +1,29 @@
+@use '../abstracts/colours' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.header-main {
+  padding: 15px 0;
+  background-color: $dark-black;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  &__logo {
+    max-width: 115px;
+  }
+
+  @include breakpointMax(md){
+    .ripple-button{
+      padding: 10px 16px 10px 16px;
+      font-size: 10px;
+      min-width: auto;
+    }
+  }
+
+  @include breakpoint(md){
+    &__logo {
+      max-width: 158px;
+    }
+  }
+}
